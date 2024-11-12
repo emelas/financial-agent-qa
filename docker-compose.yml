@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  streamlit_app:
+    build: .
+    ports:
+      - "8501:8501"               # Streamlit
+      - "8888:8888"               # Jupyter Lab
+    volumes:
+      - .:/app                    # Mount the current directory to /app in the container
+    environment:
+      - JUPYTER_TOKEN=TomoroAIEliasMelas    # Password for Jupyter Lab access
+    command: >
+      sh -c "python -m streamlit run app_streamlit/pages/2_QA.py --server.port=8501 --server.enableCORS=false &
+              jupyter lab --ip 0.0.0.0 --port=8888 --no-browser --allow-root"
+    depends_on:
+      - flask_app                 # Ensure Flask starts before Streamlit attempts to access it
+
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"               # Flask
+    volumes:
+      - .:/app                    # Mount the current directory to /app in the container
+    environment:
+      - FLASK_APP=app_flask/app.py      # Path to the Flask app (without .py extension)
+      - FLASK_RUN_HOST=0.0.0.0          # Make Flask accessible outside container
+      - FLASK_RUN_PORT=5000
+    command: >
+      python -m flask run

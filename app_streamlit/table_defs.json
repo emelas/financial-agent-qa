@@ -1,0 +1,49 @@
+{
+    "train_data": {
+        "pagination": true,
+        "paginationPageSize": 12,
+        "rowSelection": "multiple",
+        "defaultColDef": {
+            "resizable": true,
+            "cellStyle": {"fontSize": "14px"},
+            "filter": true
+        },
+        "columnDefs": [
+            {
+                "field": "source_text",
+                "editable": false
+            },
+            {
+                "field": "filename",
+                "editable": false
+            },
+            {
+                "field": "table",
+                "editable": false
+            },
+            {
+                "field": "qa",
+                "editable": false
+            },
+            {
+                "field": "excerpt",
+                "editable": false,
+                "hide": true
+            },
+            {
+                "field": "article",
+                "editable": false,
+                "hide":true
+            },
+            {
+                "field": "date_scraped",
+                "editable": false
+            },
+            {
+                "field": "Summary",
+                "editable": false,
+                "hide":true
+            }
+        ]
+    }
+}

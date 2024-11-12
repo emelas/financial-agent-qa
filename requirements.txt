@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain-openai
+langchain-community
+azure.ai.documentintelligence
+numexpr
+pandas
+openai
+langgraph
+numexpr
+streamlit
+flask
