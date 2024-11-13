@@ -73,11 +73,12 @@ def call_model(state: ChainState, config: RunnableConfig):
     agent_executor = AgentExecutor.from_agent_and_tools(
         agent=agent,
         tools=tools,
-        verbose=False,
+        verbose=True,
         handle_parsing_errors=True,  # Handle any parsing errors gracefully
     )
     # response = agent_executor.invoke({'input':state},)['input']['messages'][0]
-    response = agent_executor.invoke({'input':state},)['input']['messages'][0]
+    response = agent_executor.invoke({'input':state},)['output']
+    # response = response['input']['messages'][0]
     # response = llm.invoke(state["messages"], config)
     print(f'call_model response: {response}')
     ground_truth = state["ground_truth"]
