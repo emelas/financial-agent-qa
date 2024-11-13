@@ -77,8 +77,10 @@ def split_qa(x):
 def process_document(text, question, ground_truth):
     # url = 'http://localhost:5000/process_document'
     # url = 'http://localhost:5000/process_document_advanced'
+    # url = 'http://localhost:5000/process_document_advanced_agent'
     # url = 'http://flask_app:5000/process_document'
-    url = 'http://flask_app:5000/process_document_advanced'
+    # url = 'http://flask_app:5000/process_document_advanced'
+    url = 'http://flask_app:5000/process_document_advanced_agent'
     payload = {
         'text': text,
         'question': question,

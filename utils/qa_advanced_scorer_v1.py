@@ -68,17 +68,16 @@ def call_chain(state: ChainState, config: RunnableConfig):
     return {"messages": [response],"ground_truth":ground_truth,}
 
 def call_model(state: ChainState, config: RunnableConfig):
-    prompt = hub.pull("hwchase17/structured-chat-agent")
-    agent = create_structured_chat_agent(llm=llm, tools=tools, prompt=prompt)
-    agent_executor = AgentExecutor.from_agent_and_tools(
-        agent=agent,
-        tools=tools,
-        verbose=False,
-        handle_parsing_errors=True,  # Handle any parsing errors gracefully
-    )
+    # prompt = hub.pull("hwchase17/structured-chat-agent")
+    # agent = create_structured_chat_agent(llm=llm, tools=tools, prompt=prompt)
+    # agent_executor = AgentExecutor.from_agent_and_tools(
+    #     agent=agent,
+    #     tools=tools,
+    #     verbose=False,
+    #     handle_parsing_errors=True,  # Handle any parsing errors gracefully
+    # )
     # response = agent_executor.invoke({'input':state},)['input']['messages'][0]
-    response = agent_executor.invoke({'input':state},)['input']['messages'][0]
-    # response = llm.invoke(state["messages"], config)
+    response = llm.invoke(state["messages"], config)
     print(f'call_model response: {response}')
     ground_truth = state["ground_truth"]
     return {"messages": [response],"ground_truth":ground_truth,}
