@@ -144,7 +144,7 @@ def advanced_scorer(state: ChainState, config: RunnableConfig) -> str:
        - Extract and compare numerical values, ignoring percentage signs for example
        - Consider acceptable margin of error (±1% or correct to the whole number)
        - Check for unit consistency
-       - Consider the absolute values of the numbers
+       - Ignore the signs and only consider the absolute values of the numbers
     
     2. Conceptual Correctness:
        - Verify if the approach/methodology is correct

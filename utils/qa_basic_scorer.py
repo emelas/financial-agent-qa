@@ -18,7 +18,6 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.output_parsers import JsonOutputParser, StrOutputParser
 
 from flask import Flask, request, jsonify
-from utils import doc_reader
 app = Flask(__name__)
 
 # BASIC SCORER
