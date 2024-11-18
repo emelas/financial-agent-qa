@@ -242,6 +242,9 @@ with tab1:
             # with st.expander("**Show Source Text**",expanded=False):
             #     with st.container(height=500):
             #         st.text(text)
+        
+        if st.button('Reset'):
+            st.cache_data.clear()
 
 with tab2:
     file = st.file_uploader("Upload your File", type=['pdf', 'docx','txt'])
@@ -300,4 +303,5 @@ with tab2:
                 with st.container(height=500):
                     st.text(text)
 
-    
+        if st.button('Reset'):
+            st.cache_data.clear()
