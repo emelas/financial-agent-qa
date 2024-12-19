@@ -203,12 +203,17 @@ with tab1:
         with st.container(height=500):
             st.text(text)
 
+    with st.expander("**Custom Source Text**",expanded=False):
+        text_custom = st.text_area("Custom Text", value=text, height = 500)
+
     custom_col1, custom_col2 = st.columns(2)
     with custom_col1:
         question_custom = st.text_input("Custom Question", value=question)
     with custom_col2:
         ground_truth_custom = st.text_input("Custom Ground-truth", value=answer)
 
+    if text_custom:
+        text = text_custom
     if question_custom:
         question = question_custom
     if ground_truth_custom:
